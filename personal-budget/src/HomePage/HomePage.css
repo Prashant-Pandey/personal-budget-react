@@ -1,0 +1,31 @@
+.page-area {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.container article.text-box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 600px;
+    text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+    .container article.text-box {
+        margin: 10px;
+    }
+}
+
+path.slice {
+    stroke-width: 2px;
+}
+
+polyline {
+    opacity: .3;
+    stroke: black;
+    stroke-width: 2px;
+    fill: none;
+}
