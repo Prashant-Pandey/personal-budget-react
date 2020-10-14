@@ -1,5 +1,2 @@
-# Info
-
-The path to NGInx main folder:
-/usr/share/nginx/html
-
+### Sneakpeak of the React App
+![personal budget app](./personal-budget-snip.PNG)
