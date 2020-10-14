@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import './HomePage.css';
+import './HomePage.scss';
+import axios from 'axios';
+import ChartJSComponent from '../ChartJSComponent/ChartJSComponent';
+import D3JSComponent from '../D3JSComponent/D3JSComponent';
 
 export default class HomePage extends Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			budgets: []
+		}
+	}
+
+	async componentDidMount() {
+		const res = (await axios.get("http://localhost:3000/budget")).data.data;
+		this.setState({ budgets: res });
+		this.forceUpdate();
 	}
 
 	render() {
@@ -13,16 +25,12 @@ export default class HomePage extends Component {
 				<article className="text-box" itemProp="additionalProperty" itemScope
 					itemType="https://schema.org/PropertyValue">
 					<h1 itemProp="name">D3 JS</h1>
-					<p itemProp="value">
-						<svg id="d3Chart" height="300" width="500"></svg>
-					</p>
+					<D3JSComponent itemProp="value" budgets={this.state.budgets} />
 				</article>
 				<article className="text-box" itemProp="additionalProperty" itemScope
 					itemType="https://schema.org/PropertyValue">
 					<h1 itemProp="name">Chart JS</h1>
-					<p itemProp="value">
-						<canvas id="myChart" height="300" width="500"></canvas>
-					</p>
+					<ChartJSComponent itemProp="value" budgets={this.state.budgets} />
 				</article>
 				<article className="text-box" itemProp="additionalProperty" itemScope
 					itemType="https://schema.org/PropertyValue">

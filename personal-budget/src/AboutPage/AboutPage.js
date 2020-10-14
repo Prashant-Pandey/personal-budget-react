@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './AboutPage.css';
+import './AboutPage.scss';
 
 export default class AboutPage extends Component {
 
